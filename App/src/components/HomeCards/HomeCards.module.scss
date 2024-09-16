@@ -1,0 +1,47 @@
+.HomeCards{
+    display: flex;
+    justify-content: space-around;
+    margin-top: -10vh;
+    .Card{
+        font-family: "Poppins", sans-serif;
+        background-color: #ffffff;
+        padding: 15px;
+        box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.75);
+        z-index: 99;
+        line-height: 1.5em;
+        border-radius: 5px;
+        
+        img{
+            height: 300px;
+            width: 400px;
+        }
+        h3{
+            font-weight: 300;
+        }
+        p{
+            font-weight: 200;
+        }
+        h2{
+            font-weight: 400;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .CardHeader{
+            display: flex;
+            justify-content: space-between;
+        }
+        .Label{
+            padding: 2px 8px;
+            color: #ffffff;
+            font-weight: 500;
+
+        }
+    }
+    .Card:nth-child(2){
+        margin-top: -5vh;
+        margin-bottom: 5vh;
+    }
+
+}

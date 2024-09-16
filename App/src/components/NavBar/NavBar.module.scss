@@ -1,0 +1,33 @@
+.NavMain{
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    top: -9vh;
+    ul{
+        display: flex;
+        justify-content: flex-end;
+        gap: 2rem;
+        li{
+            
+            a{
+                font-size: 20px;
+                color: #ffffff;
+            }:hover{
+                color: #AC9FBB;
+            }
+        }
+        .SearchBar{
+            padding-right: 30px;
+            display: flex;
+            input{
+                border: none;
+                padding: 7px;
+                color: #999999;
+                border-radius: 5px 0px 0px 5px;
+            }
+            img{
+                width: 100%;
+                cursor: pointer;
+            }
+        }
+    }
+}

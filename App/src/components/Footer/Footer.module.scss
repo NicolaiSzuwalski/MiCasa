@@ -1,0 +1,27 @@
+.FooterMain{
+    background-color: #1D1E2C;
+    height: 22vh;
+    color: #ffffff;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+    left: 0;
+    bottom: 0;
+    margin-top: 10vh;
+    h1{
+        padding-bottom: 15px;
+    }
+    article{
+        display: flex;
+        justify-content: space-between;
+        p{
+        }
+        .SubmitSect{
+            p{
+                text-align: right;
+                width: 55%;
+                font-size: 12px;
+                padding: 5px;
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+.Slideshow {
+    position: relative;
+    width: 100%;
+    height: 500px; 
+    overflow: hidden;
+    margin-top: -10vh;
+    z-index: -3;
+    .SlideshowWrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+
+.Slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: -1;
+}
+
+.SlideActive {
+    opacity: 1;
+}
+
+.ArrowLeft,
+.ArrowRight {
+    position: absolute;
+    top: 40%;
+    width: 20px; 
+    height: 25px;
+    cursor: pointer; 
+    z-index: 10; 
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease; 
+}
+
+.ArrowLeft {
+    left: 10px;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+
+.ArrowRight {
+    right: 10px;
+    
+}
