@@ -1,23 +1,26 @@
-import { createContext, useContext, useEffect, useState } from "react"
+// AuthProvider.js
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
 
-const AuthProvider = ({children}) => {
-    const [ loginData, setLoginData ] = useState('');
+const AuthProvider = ({ children }) => {
+    const [loginData, setLoginData] = useState(null); // Use null initially
 
     useEffect(() => {
-        if(sessionStorage.getItem('supabase.auth.token')) {
-            setLoginData(JSON.parse(sessionStorage.getItem('supabase.auth.token')))
+        const token = sessionStorage.getItem('supabase.auth.token');
+        if (token) {
+            const parsedData = JSON.parse(token);
+            setLoginData(parsedData.session); // Store the session details
         }
-    },[]);
+    }, []);
 
-  return (
-    <AuthContext.Provider value={{ loginData, setLoginData }}>
-        {children}
-    </AuthContext.Provider>
-  );
+    return (
+        <AuthContext.Provider value={{ loginData, setLoginData }}>
+            {children}
+        </AuthContext.Provider>
+    );
 }
 
 const useAuth = () => useContext(AuthContext);
 
-export { useAuth, AuthProvider }
+export { useAuth, AuthProvider };

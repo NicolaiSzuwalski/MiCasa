@@ -1,0 +1,102 @@
+.ReviewMain{
+    margin: 10vh 0 10vh 0;
+    h1{
+        display: flex;
+        justify-content: center;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+    }
+    .DisplayReview{
+        background-color: #F7EBEC;
+        h6,p{
+            font-family: "Poppins", sans-serif;
+        }
+        h6{
+            font-size: 16px;
+        }
+        p{
+            font-size: 14px;
+        }
+    }
+    .DisplayReview div{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        padding: 50px;
+        line-height: 1.5em;
+    }
+
+    .writeReview{
+        background-color: #AC9FBB;
+        .OpenModalBtn{
+            display: flex;
+            justify-content: center;
+            button{
+                background-color: #AC9FBB;
+                color: #ffffff;
+                padding: 20px;
+                font-family: "Poppins", sans-serif;
+                border: none;
+                border-left: solid 1px #ffffff;
+                border-right: solid 1px #ffffff;
+            }
+            button:hover{
+                background-color: grey;
+            }
+        }
+        
+        .modal{
+            position: relative;
+            form{
+                background-color: grey;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 30px;
+                .closeModal{
+                    button{
+                        border: none;
+                        background-color: grey;
+                        color: #ffffff;
+                        margin-right: 29vw;
+                        
+                    }
+                    button:hover{
+                        cursor: pointer;
+                    }
+                }
+                input{
+                    padding: 5px;
+                    width: 30%;
+                    font-family: "Poppins", sans-serif;
+                }
+                
+                textarea{
+                    width: 30.8%;
+                    height: 100px;
+                    font-family: "Poppins", sans-serif;
+                    resize: none;
+                }
+
+                .submitBtn{
+                    margin-right: 26vw;
+                    button{
+                        padding: 5px 10px;
+                        border: none;
+                        border-radius: 5px;
+                        background-color: #F7EBEC;
+                        margin-bottom: 5px;
+                        font-family: "Poppins", sans-serif;
+                    }
+                    p{
+                     color: rgb(208, 71, 71);
+                     font-size: 18px;
+                    }
+                }
+            }
+        }   
+    }
+}
+
+
