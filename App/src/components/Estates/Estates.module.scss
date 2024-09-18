@@ -1,3 +1,17 @@
+.EstateHeader{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 80px 0 100px;
+    .Selectors{
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        select{
+            width: 33%;
+        }
+    }
+}
+
 
 .EstateCards{
     display: grid;
