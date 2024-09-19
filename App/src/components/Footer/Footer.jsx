@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Footer.module.scss'
 import { SubmitNewsLetter } from '../SubmitNewsLetter/SubmitNewsLetter'
+import { Link } from 'react-router-dom'
 
 export const Footer = () => {
   return (
@@ -14,10 +15,10 @@ export const Footer = () => {
                 <p>Telefon: +45 1122 3344</p>
             </div>
             <div>
-                <p>Forside</p>
-                <p>Boliger</p>
-                <p>Kontakt</p>
-                <p>Login</p>
+                <Link to='/'><p>Forside</p></Link>
+                <Link to='Estates'><p>Boliger</p></Link>
+                <Link to='/Contact'><p>Kontakt</p></Link>
+                <Link to='/Login'><p>Login</p></Link>
             </div>
             <div className={styles.SubmitSect}>
                 <h3>Få drømmehuset i din indbakke</h3>

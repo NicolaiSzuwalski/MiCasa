@@ -54,8 +54,6 @@ export const Estates = () => {
 
 
                 setData(filteredEstates);
-                console.log(data);
-                console.log(filteredEstates);
             }
         }
     };

@@ -16,7 +16,6 @@ export const Employees = () => {
                 console.error(error)
             }else{
                 setData(data)
-                console.log(data)
             }
         }
     };

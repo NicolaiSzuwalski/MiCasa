@@ -1,0 +1,21 @@
+.ContactMsg{
+    margin: 5vh 5vw 35vh 5vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: "Poppins", sans-serif;
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        .FormField{
+            display: flex;
+            gap: 10rem;
+            input{
+                width: 50%;
+            }
+            select{
+                
+            }
+        }
+    }
+}

@@ -42,7 +42,15 @@ export const EstateDetails = () => {
                         name
                     ),
                     created_at,
-                    employee_id,
+                    employee_id(
+                        id,
+                        firstname,
+                        lastname,
+                        position,
+                        image_url,
+                        phone,
+                        email
+                    ),
                     energy_label_id(
                         id,
                         letter,
@@ -71,6 +79,7 @@ export const EstateDetails = () => {
             } else {
                 setData(data);
                 console.log(data);
+
             }
         }
     };
@@ -90,6 +99,8 @@ export const EstateDetails = () => {
             primaryImageUrl = primaryImageRel.images.image_url;
         }
     }
+
+    const daysSinceCreated = data ? Math.floor((new Date() - new Date(data.created_at)) / (1000 * 60 * 60 * 24)) : null;
 
     return (
         <section className={styles.EstateDetails}>
@@ -126,11 +137,70 @@ export const EstateDetails = () => {
                 </article>
 
                 <article className={styles.Article2}>
-
+                    <div className={styles.GridThis}>
+                        <div className={styles.FlexThis}>
+                            <div>
+                                <p>Sagsnr.</p>
+                                <p>Boligareal</p>
+                                <p>Grundareal</p>
+                                <p>Antal rum</p>
+                                <p>Antal plan</p>
+                            </div>
+                            <div>
+                                <p>{data.id}</p>
+                                <p>{data.floor_space} m2</p>
+                                <p>{data.ground_space} m2</p>
+                                <p>{data.num_rooms}</p>
+                                <p>{data.num_floors}</p>
+                            </div>
+                        </div>
+                        <div className={styles.FlexThis}>
+                            <div>
+                                <p>Kælder</p>
+                                <p>Byggeår</p>
+                                <p>Ombygget</p>
+                                <p>Energimærke</p>
+                                <p>Liggetid</p>
+                            </div>
+                            <div>
+                                <p>{data.basement_space}</p>
+                                <p>{data.year_construction}</p>
+                                <p>{data.year_rebuilt}</p>
+                                <p>{data.energy_label_id.letter}</p>
+                                <p>{daysSinceCreated} dage</p>
+                            </div>
+                        </div>
+                        <div className={styles.FlexThis}>
+                            <div>
+                                <p>Kontantpris</p>
+                                <p>Udbetaling</p>
+                                <p>Brutto ex.ejerudgift</p>
+                                <p>Netto ex.ejerudgift</p>
+                                <p>Ejerudgift</p>
+                            </div>
+                            <div>
+                                <p>{numberFormatter.format(data.price)}</p>
+                                <p>{numberFormatter.format(data.payout)}</p>
+                                <p>{numberFormatter.format(data.gross)}</p>
+                                <p>{data.net}</p>
+                                <p>{data.cost}</p>
+                            </div>
+                        </div>
+                    </div>
                 </article>
 
                 <article className={styles.Article3}>
-
+                    <div className={styles.Description}>
+                        {data.description}
+                    </div>
+                    <div className={styles.EmployeeDetails}>
+                        <h3>Kontakt</h3>
+                        <img src={data.employee_id.image_url} alt="EmployeeImg" />
+                        <h1>{data.employee_id.firstname} {data.employee_id.lastname}</h1>
+                        <p>{data.employee_id.position}</p>
+                        <p>Mobil: {data.employee_id.phone}</p>
+                        <p>Email: {data.employee_id.email}</p>
+                    </div>
                 </article>
             </section>
             )}

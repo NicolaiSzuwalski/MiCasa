@@ -5,21 +5,21 @@ import { useAuth } from '../../providers/AuthProvider'
 import { useForm } from "react-hook-form"
 
 export const Review = () => {
-    const { supabase } = useSupabase(); // Get Supabase instance
-    const { loginData } = useAuth(); // Get authentication data
-    const [submitted, setSubmitted] = useState(false); // Track if review is submitted
-    const [reviews, setReviews] = useState([]); // Store fetched reviews
-    const [currentReviewIndex, setCurrentReviewIndex] = useState(0); // Index of current review
-    const [showModal, setShowModal] = useState(false); // Toggle modal visibility
-    const [feedbackMessage, setFeedbackMessage] = useState(''); // Feedback message for user
+    const { supabase } = useSupabase(); 
+    const { loginData } = useAuth(); 
+    const [submitted, setSubmitted] = useState(false); 
+    const [reviews, setReviews] = useState([]); 
+    const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+    const [showModal, setShowModal] = useState(false); 
+    const [feedbackMessage, setFeedbackMessage] = useState(''); 
 
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm(); // Hook form setup
+    } = useForm(); 
 
-    // Default review to display when no reviews are available
+    
     const defaultReview = {
         title: 'Fandt drømmehuset...',
         content: '"Homelands hjalp os med at finde vores drømmehus i 2018. Efter at vi havde prøvet to andre mæglere lykkedes det dem at sælge vores gamle hus på under tre måneder. Både service og pris var helt i top"',
@@ -27,7 +27,7 @@ export const Review = () => {
         date: 'August 2019',
     };
 
-    // Fetch reviews from Supabase
+    
     const getReviews = async () => {
         if (supabase) {
             const { data, error } = await supabase
@@ -37,16 +37,16 @@ export const Review = () => {
             if (error) {
                 console.error('Error fetching reviews:', error);
             } else {
-                setReviews(data); // Set fetched reviews
-                setCurrentReviewIndex(0); // Reset review index
+                setReviews(data); 
+                setCurrentReviewIndex(0);
             }
         }
     };
 
-    // Create a new review
+    
     const createReview = async (formdata) => {
         if (!loginData || !loginData.user) {
-            setFeedbackMessage('Du skal være logget ind for at kunne skrive en anmeldelse.'); // Feedback if not logged in
+            setFeedbackMessage('Du skal være logget ind for at kunne skrive en anmeldelse.');
             return;
         }
         if (supabase) {
@@ -54,7 +54,7 @@ export const Review = () => {
                 .from('reviews')
                 .insert([
                     {
-                        user_id: loginData.user.id, // Set user ID from auth data
+                        user_id: loginData.user.id, 
                         name: formdata.name,
                         title: formdata.title,
                         content: formdata.content,
@@ -62,36 +62,36 @@ export const Review = () => {
                 ]);
             if (error) {
                 console.error('Error inserting review:', error);
-                setFeedbackMessage('Noget gik galt, prøv igen senere.'); // Error feedback
+                setFeedbackMessage('Noget gik galt, prøv igen senere.'); 
             } else {
-                setSubmitted(true); // Set submission status
-                setFeedbackMessage('Anmeldelse sendt!'); // Success feedback
-                getReviews(); // Refresh reviews after submission
-                setShowModal(false); // Close modal
+                setSubmitted(true); 
+                setFeedbackMessage('Anmeldelse sendt!'); 
+                getReviews(); 
+                setShowModal(false); 
             }
         }
     };
 
-    // Fetch reviews when component mounts
+   
     useEffect(() => {
         getReviews();
     }, []);
 
-    // Update review display every 10 seconds
+    
     useEffect(() => {
         if (reviews.length > 0) {
             const intervalId = setInterval(() => {
                 setCurrentReviewIndex(prevIndex => {
                     const nextIndex = prevIndex + 1;
                     if (nextIndex >= reviews.length) {
-                        return 0; // Hvis vi når slutningen, start forfra
+                        return 0; 
                     }
-                    return nextIndex; // Ellers gå til næste
+                    return nextIndex; 
                 });
                 
             }, 8000); 
 
-            return () => clearInterval(intervalId); // Cleanup interval on unmount
+            return () => clearInterval(intervalId);
         }
     }, [reviews]);
 
@@ -152,7 +152,7 @@ export const Review = () => {
                             />
                             <div className={styles.submitBtn}>
                             <button type='submit'>Send</button>
-                            {feedbackMessage && <p>{feedbackMessage}</p>} {/* Display feedback */}
+                            {feedbackMessage && <p>{feedbackMessage}</p>} 
                             </div>
                         </form>
                         

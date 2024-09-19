@@ -5,6 +5,7 @@ import styles from './HomeCards.module.scss'
 import { Link } from 'react-router-dom'
 
 
+
 export const HomeCards = () => {
     const { supabase } = useSupabase();
     const [data, setData] = useState([]);
@@ -54,8 +55,6 @@ export const HomeCards = () => {
                 const selectedEstates = shuffled.slice(0, 3);
 
                 setData(selectedEstates);
-                console.log(data);
-                console.log(selectedEstates)
             }
         }
     };
@@ -73,10 +72,12 @@ export const HomeCards = () => {
                 return (
                     <div key={estate.id} className={styles.Card}>
                         {primaryImage && (
+                            <Link to='/Estates'>
                             <img 
                                 src={primaryImage.image_url} 
                                 alt="EstateImg" 
                             />
+                            </Link>
                         )}
 
                         <div className={styles.CardInfo}>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 import { Employees } from '../../components/Employees/Employees'
 import { HomeCards } from '../../components/HomeCards/HomeCards'
 import { Review } from '../../components/Review/Review'
