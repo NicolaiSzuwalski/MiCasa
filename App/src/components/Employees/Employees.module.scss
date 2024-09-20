@@ -15,9 +15,9 @@
 
         .EmpCard {
             position: relative;
-            z-index: 1; /* Set to a positive value */
+            z-index: 1; 
             border: solid 1px #000;
-            overflow: hidden; /* Ensure child elements don't overflow outside of the parent */
+            overflow: hidden; 
 
             img {
                 width: 220px;
@@ -26,7 +26,7 @@
 
             .EmpCardInfo {
                 position: absolute;
-                z-index: 2; /* Ensure this is higher than the .EmpCard */
+                z-index: 2; 
                 background-color: rgba(29, 30, 44, 0.8);
                 color: #ffffff;
                 width: 100%;
@@ -34,7 +34,7 @@
                 font-family: "Poppins", sans-serif;
                 font-weight: 300;
                 bottom: 0;
-                transition: bottom 0.3s ease; /* Smooth transition */
+                transition: bottom 0.3s ease; 
             }
 
             .EmpCardInfo:hover {

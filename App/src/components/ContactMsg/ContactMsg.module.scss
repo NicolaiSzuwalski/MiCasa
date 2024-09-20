@@ -7,15 +7,34 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+
+
         .FormField{
+            font-size: 14px;
             display: flex;
             gap: 10rem;
             input{
                 width: 50%;
             }
             select{
-                
+                width: 50.3%;
+                margin-left: -50px;
             }
+            textarea{
+                resize: none;
+                width: 50%;
+                margin-left: -10px;
+                height: 100px;
+            }
+        }
+        button{
+            width: 10%;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #F7EBEC;
+            font-family: "Poppins", sans-serif;
+            margin-left: 485px;
         }
     }
 }
